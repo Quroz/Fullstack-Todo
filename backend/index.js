@@ -6,6 +6,12 @@ mongoose.set('strictQuery', false)
 
 const app = express()
 
+//Middleware
+app.use(express.json())
+app.use(cors())
+
+//Routes
+app.use("/api/todo", todoRoute)
 
 mongoose.connect("mongodb+srv://user123:Sommar13@cluster0.qtewhwg.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
@@ -20,10 +26,4 @@ mongoose.connect("mongodb+srv://user123:Sommar13@cluster0.qtewhwg.mongodb.net/?r
 })
 
 
-//Middleware
-app.use(express.json())
-app.use(cors())
-
-//Routes
-app.use("api/todo", todoRoute)
 
