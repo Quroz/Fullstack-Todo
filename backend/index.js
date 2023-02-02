@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
+const todoRoute = require("./routes/todoRoute")
 mongoose.set('strictQuery', false)
 
 const app = express()
@@ -22,7 +23,7 @@ mongoose.connect("mongodb+srv://user123:Sommar13@cluster0.qtewhwg.mongodb.net/?r
 //Middleware
 app.use(express.json())
 app.use(cors())
-app.use("api/todo", () => {
-    
-})
+
+//Routes
+app.use("api/todo", todoRoute)
 
