@@ -16,11 +16,11 @@ async function get(req,res) {
 async function add(req,res) {
 
     const {title, description} = req.body
-
+  
     try {
         const existTitle = await Todo.findOne({title})
-
-        if(existTitle)  //Check if title already exists
+  
+        if(existTitle.title)  //Check if title already exists
            return res.status(400).json({message: "This title already exists"})
         
         const addedTodo = await Todo.create({   //Creating new todo
