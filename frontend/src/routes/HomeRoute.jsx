@@ -26,6 +26,9 @@ function HomeRoute() {
         </div>
         <Todos todos={todos} />
       </div>
+      <div className='absolute bottom-0 rounded-full h-[50px] w-[50px] m-5 bg-green-500 right-0 flex items-center justify-center cursor-pointer hover:bg-green-400'>
+        <div className='rounded-full h-[10px] w-[10px] bg-white' />
+      </div>
     </div>
   )
 }
