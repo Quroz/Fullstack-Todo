@@ -20,7 +20,7 @@ async function add(req,res) {
     try {
         const existTitle = await Todo.findOne({title})
   
-        if(existTitle.title)  //Check if title already exists
+        if(existTitle)  //Check if title already exists
            return res.status(400).json({message: "This title already exists"})
         
         const addedTodo = await Todo.create({   //Creating new todo
