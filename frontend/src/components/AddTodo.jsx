@@ -13,9 +13,9 @@ function AddTodo({ setIsAddButton, isAddButton }) {
             description: "placeholder"
         }).then((res) => console.log(res))
             .catch((err) =>
-                console.log(err.response.data));
+                setErrorMessage(err.response.data.message));
         setTitle("")
-        //window.location.reload();
+        window.location.reload();
     }
 
     return (
