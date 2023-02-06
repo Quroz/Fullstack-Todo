@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
 
-function AddTodo({ setIsAddButton, isAddButton }) {
+function AddTodo({ setIsAddButton, isAddButton, todos, setTodos }) {
 
     const [title, setTitle] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
@@ -11,11 +11,14 @@ function AddTodo({ setIsAddButton, isAddButton }) {
         axios.post("http://localhost:4000/api/todo/", {
             title: title,
             description: "placeholder"
-        }).then((res) => console.log(res))
+        }).then((res) => {
+            console.log(res.data.title)
+            setTodos([...todos, res.data.title])
+        })
             .catch((err) =>
                 setErrorMessage(err.response.data.message));
         setTitle("")
-        window.location.reload();
+        //window.location.reload();
     }
 
     return (

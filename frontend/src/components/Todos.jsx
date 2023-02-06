@@ -1,16 +1,17 @@
 import axios from 'axios'
 import React from 'react'
 
-function Todos({ todos }) {
+function Todos({ todos, setTodos }) {
 
     function handleDelete(id) {
         console.log(id)
         axios.delete(`http://localhost:4000/api/todo/${id}`).then((res) => {
-            console.log(res)
+            console.log(res.data)
+            setTodos(todos => todos.filter(todo => res.data.title !== todo.title))
         }).catch((e) => {
             console.log(e)
         })
-        window.location.reload()
+        //window.location.reload()
     }
 
     return (
